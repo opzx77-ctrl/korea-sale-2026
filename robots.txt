@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://opzx77-ctrl.github.io/korea-sale-2026/sitemap.xml
