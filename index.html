@@ -35,6 +35,12 @@ h2{font-size:23px;margin:38px 0 14px;padding-bottom:8px;border-bottom:2px solid 
 .check li{margin:12px 0;font-size:16px}footer{border-top:1px solid #eee;margin-top:36px;padding-top:18px;font-size:14px;color:#4b5563;line-height:1.8}
 .share{display:block;width:100%;padding:16px;border:0;border-radius:12px;background:#111827;color:#fff;font-size:17px;font-weight:700;cursor:pointer;margin-top:18px}
 .note{background:#fef3c7;border-radius:12px;padding:18px;font-size:16px;line-height:1.8}
+.card{cursor:pointer}.card:hover{box-shadow:0 4px 14px rgba(0,0,0,.10)}.more{color:#ea580c;font-weight:800;margin-top:12px}
+#modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:99;padding:18px}#modal.open{display:flex;align-items:center;justify-content:center}
+.modal-box{background:#fff;border-radius:20px;max-width:560px;width:100%;max-height:85vh;overflow:auto;padding:24px}
+.modal-box h3{font-size:22px;margin:6px 0 10px}.modal-box p{font-size:16px;color:#374151}
+.mbtn{display:inline-block;margin-top:14px;background:#ea580c;color:#fff!important;padding:12px 18px;border-radius:10px;text-decoration:none;font-weight:700}
+#modalClose{float:right;border:1px solid #ddd;background:#fff;border-radius:999px;padding:8px 14px;cursor:pointer;font-size:15px}
 </style>
 </head>
 <body>
@@ -55,16 +61,16 @@ h2{font-size:23px;margin:38px 0 14px;padding-bottom:8px;border-bottom:2px solid 
 <button class="on" data-f="all">전체</button><button data-f="food">🍖 먹거리</button><button data-f="kimjang">🥬 김장</button><button data-f="big">🚗 가전·자동차·패션</button><button data-f="money">💳 상품권·복권</button><button data-f="life">🏨 숙박·문화</button>
 </div>
 <div class="grid" id="grid">
-<article class="card" data-cat="food"><span class="tag">먹거리 · 10/28~11/8</span><div class="big">한우 최대 50%</div><p>대형마트·농협 하나로마트·온라인몰 등 21개사, 1,811개 점포 참여. 11월 1일은 한우 먹는 날입니다.</p><p>👉 <b>살 때:</b> 등심·불고기용은 행사 초반 물량이 넉넉할 때.</p></article>
-<article class="card" data-cat="food"><span class="tag">먹거리 · 10/28~11/29</span><div class="big">수산물 최대 50%</div><p>김, 새우젓, 천일염 등 수산물·가공품 할인. 한우보다 기간이 길어 천천히 골라도 됩니다.</p></article>
-<article class="card" data-cat="kimjang"><span class="tag">김장 · 10/29~12/2</span><div class="big">김장재료 최대 40%</div><p>배추·무·고추·마늘 등 김장 재료가 전국 300여 곳에서 할인. 김장철이라 11월 중순 이후가 본게임입니다.</p><p>👉 <b>팁:</b> 배추값은 날짜마다 다르니, 담그기 1주 전부터 가격을 지켜보세요.</p></article>
-<article class="card" data-cat="big"><span class="tag">가전·자동차 · 11/1부터</span><div class="big">차·가전 할인 공개일: 11월 1일(일)</div><p>현대·기아 등 자동차 5개사, 삼성전자·LG전자 가전 할인. 차종·제품별 할인율은 11월 1일 당일 공개됩니다.</p><p>👉 <b>처음:</b> 제조사 인증 중고차도 올해 처음 참여합니다.</p></article>
-<article class="card" data-cat="big"><span class="tag">패션 · 행사 기간</span><div class="big">백화점 겨울옷 최대 50%</div><p>롯데·신세계·현대 등 백화점 중심 겨울 의류 할인. 패딩 사기 가장 좋은 타이밍 중 하나입니다.</p></article>
-<article class="card" data-cat="food"><span class="tag">먹거리·생필품 · 행사 기간</span><div class="big">대형마트 최대 50% / 1+1</div><p>이마트·롯데마트·홈플러스 등에서 고기·제철 수산물·가공식품·생활용품을 최대 50% 또는 1+1으로 판매합니다.</p></article>
-<article class="card" data-cat="money"><span class="tag">상품권 · 11/2~11/15 등</span><div class="big">지역화폐 할인율 상향</div><p>수도권 지역사랑상품권 8% → <b>13%</b>, 인구감소지역 12% → <b>17%</b>. 모바일 온누리상품권 20% 할인 판매는 11월 2일~15일입니다.</p><p>⚠️ 예산 소진 시 조기 종료될 수 있으니, 사두는 게 유리합니다.</p></article>
-<article class="card" data-cat="money"><span class="tag">복권 · 총 17억 원 규모</span><div class="big">상생소비복권: 3만 원당 1장</div><p>디지털 온누리상품권으로 3만 원 쓸 때마다 응모권 1장. 아래 계산기에서 내 응모권 수를 확인하세요.</p></article>
-<article class="card" data-cat="life"><span class="tag">온라인 · 행사 기간</span><div class="big">중소·소상공인 최대 20~60%</div><p>11번가·G마켓·그립 등에서 중소기업·소상공인 제품 20% 타임딜·라이브커머스, 네이버 소상공인 특별전은 최대 60% 수준입니다.</p></article>
-<article class="card" data-cat="life"><span class="tag">숙박·문화 · 행사 기간</span><div class="big">숙박세일 + 일부 문화시설 무료</div><p>코리아 숙박세일페스타와 함께 일부 국가유산 무료 개방도 예정돼 있습니다. 대상·일정은 아직 미발표라, 방문 전 공식 안내를 꼭 확인하세요. 작년에는 4대 궁·종묘가 무료였습니다.</p></article>
+<article class="card" data-id="hanwoo" data-cat="food"><span class="tag">먹거리 · 10/28~11/8</span><div class="big">한우 최대 50%</div><p>대형마트·농협 하나로마트·온라인몰 등 21개사, 1,811개 점포 참여. 11월 1일은 한우 먹는 날입니다.</p><p>👉 <b>살 때:</b> 등심·불고기용은 행사 초반 물량이 넉넉할 때.</p><p class="more">자세히 보기 →</p></article>
+<article class="card" data-id="seafood" data-cat="food"><span class="tag">먹거리 · 10/28~11/29</span><div class="big">수산물 최대 50%</div><p>김, 새우젓, 천일염 등 수산물·가공품 할인. 한우보다 기간이 길어 천천히 골라도 됩니다.</p><p class="more">자세히 보기 →</p></article>
+<article class="card" data-id="kimjang" data-cat="kimjang"><span class="tag">김장 · 10/29~12/2</span><div class="big">김장재료 최대 40%</div><p>배추·무·고추·마늘 등 김장 재료가 전국 300여 곳에서 할인. 김장철이라 11월 중순 이후가 본게임입니다.</p><p>👉 <b>팁:</b> 배추값은 날짜마다 다르니, 담그기 1주 전부터 가격을 지켜보세요.</p><p class="more">자세히 보기 →</p></article>
+<article class="card" data-id="auto" data-cat="big"><span class="tag">가전·자동차 · 11/1부터</span><div class="big">차·가전 할인 공개일: 11월 1일(일)</div><p>현대·기아 등 자동차 5개사, 삼성전자·LG전자 가전 할인. 차종·제품별 할인율은 11월 1일 당일 공개됩니다.</p><p>👉 <b>처음:</b> 제조사 인증 중고차도 올해 처음 참여합니다.</p><p class="more">자세히 보기 →</p></article>
+<article class="card" data-id="fashion" data-cat="big"><span class="tag">패션 · 행사 기간</span><div class="big">백화점 겨울옷 최대 50%</div><p>롯데·신세계·현대 등 백화점 중심 겨울 의류 할인. 패딩 사기 가장 좋은 타이밍 중 하나입니다.</p><p class="more">자세히 보기 →</p></article>
+<article class="card" data-id="mart" data-cat="food"><span class="tag">먹거리·생필품 · 행사 기간</span><div class="big">대형마트 최대 50% / 1+1</div><p>이마트·롯데마트·홈플러스 등에서 고기·제철 수산물·가공식품·생활용품을 최대 50% 또는 1+1으로 판매합니다.</p><p class="more">자세히 보기 →</p></article>
+<article class="card" data-id="voucher" data-cat="money"><span class="tag">상품권 · 11/2~11/15 등</span><div class="big">지역화폐 할인율 상향</div><p>수도권 지역사랑상품권 8% → <b>13%</b>, 인구감소지역 12% → <b>17%</b>. 모바일 온누리상품권 20% 할인 판매는 11월 2일~15일입니다.</p><p>⚠️ 예산 소진 시 조기 종료될 수 있으니, 사두는 게 유리합니다.</p><p class="more">자세히 보기 →</p></article>
+<article class="card" data-id="lottery" data-cat="money"><span class="tag">복권 · 총 17억 원 규모</span><div class="big">상생소비복권: 3만 원당 1장</div><p>디지털 온누리상품권으로 3만 원 쓸 때마다 응모권 1장. 아래 계산기에서 내 응모권 수를 확인하세요.</p><p class="more">자세히 보기 →</p></article>
+<article class="card" data-id="online" data-cat="life"><span class="tag">온라인 · 행사 기간</span><div class="big">중소·소상공인 최대 20~60%</div><p>11번가·G마켓·그립 등에서 중소기업·소상공인 제품 20% 타임딜·라이브커머스, 네이버 소상공인 특별전은 최대 60% 수준입니다.</p><p class="more">자세히 보기 →</p></article>
+<article class="card" data-id="stay" data-cat="life"><span class="tag">숙박·문화 · 행사 기간</span><div class="big">숙박세일 + 일부 문화시설 무료</div><p>코리아 숙박세일페스타와 함께 일부 국가유산 무료 개방도 예정돼 있습니다. 대상·일정은 아직 미발표라, 방문 전 공식 안내를 꼭 확인하세요. 작년에는 4대 궁·종묘가 무료였습니다.</p><p class="more">자세히 보기 →</p></article>
 </div>
 
 <section class="ad-section" aria-label="광고"><span class="ad-label">AD · 광고</span><div class="ad-box"><ins class="kakao_ad_area" style="display:none;" data-ad-unit="DAN-HmyqguQf7uEVShLu" data-ad-width="300" data-ad-height="250"></ins></div></section>
@@ -116,6 +122,7 @@ h2{font-size:23px;margin:38px 0 14px;padding-bottom:8px;border-bottom:2px solid 
 참고 보도: <a href="https://global.newspim.com/news/view/20261027000209" target="_blank" rel="noopener">뉴스핌</a> · <a href="https://en.fnnews.com/news/202610270509428626" target="_blank" rel="noopener">파이낸셜뉴스</a> · <a href="https://mbiz.heraldcorp.com/article/10916178" target="_blank" rel="noopener">헤럴드경제</a> · <a href="https://news.sbs.co.kr/english/article.do?news_id=N1008818325" target="_blank" rel="noopener">SBS</a>
 </footer>
 </main>
+<div id="modal" role="dialog" aria-modal="true" aria-label="카드 자세히 보기"><div class="modal-box"><button type="button" id="modalClose">닫기 ✕</button><span id="mTag" style="color:#ea580c;font-weight:800;font-size:13px"></span><h3 id="mTitle"></h3><div id="mBody"></div><a id="mLink" class="mbtn" href="#" target="_blank" rel="noopener">관련 기사 보기 →</a></div></div>
 <script type="text/javascript" src="//t1.kakaocdn.net/kas/static/ba.min.js" async></script>
 <script>
 const start=new Date(2026,9,29), end=new Date(2026,10,15,23,59,59), now=new Date();
@@ -128,6 +135,27 @@ function fmt(n){return Math.round(n).toLocaleString('ko-KR')+'원';}
 function calc(){const price=+document.getElementById('price').value||0, disc=+document.getElementById('disc').value||0, extra=+document.getElementById('extra').value||0; const fin=price*(1-disc/100)*(1-extra/100); document.getElementById('final').textContent=fmt(fin); document.getElementById('save').textContent='절약액 '+fmt(price-fin)+(extra?' (행사 할인 + 추가 '+extra+'% 적용 기준)':''); const amt=+document.getElementById('onnuri').value||0; document.getElementById('tickets').textContent=Math.floor(amt/30000)+'장 (3만 원당 1장 기준)';}
 ['price','disc','extra','onnuri'].forEach(id=>document.getElementById(id).addEventListener('input',calc)); calc();
 document.getElementById('shareBtn').onclick=async()=>{const url=location.href; try{await navigator.clipboard.writeText(url); alert('링크를 복사했어요. 카톡·문자로 붙여넣으세요.');}catch(e){prompt('이 주소를 복사하세요',url);}};
+</script>
+<script>
+const DETAILS={
+hanwoo:{tag:'먹거리 · 10/28~11/8',title:'한우 최대 50%',body:'<p><b>기간:</b> 10월 28일~11월 8일</p><p><b>어디서:</b> 대형마트, 농협 하나로마트, 온라인몰 등 21개사 1,811개 점포</p><p><b>팁:</b> 11월 1일은 한우 먹는 날입니다. 행사 초반 물량이 넉넉할 때, 평소 가격과 비교하고 사세요.</p>',link:'https://www.mk.co.kr/en/business/12188190'},
+seafood:{tag:'먹거리 · 10/28~11/29',title:'수산물 최대 50%',body:'<p><b>기간:</b> 10월 28일~11월 29일</p><p><b>품목:</b> 김, 새우젓, 천일염 등 수산물·가공품</p><p><b>팁:</b> 한우보다 기간이 깁니다. 급하지 않으면 가격을 보면서 천천히 고르세요.</p>',link:'https://mbiz.heraldcorp.com/article/10916178'},
+kimjang:{tag:'김장 · 10/29~12/2',title:'김장재료 최대 40%',body:'<p><b>기간:</b> 10월 29일~12월 2일</p><p><b>품목:</b> 배추, 무, 고추, 마늘 등 김장 재료, 전국 300여 곳</p><p><b>팁:</b> 배추값은 날짜마다 다릅니다. 담그기 1주 전부터 가격을 지켜보세요.</p>',link:'https://mbiz.heraldcorp.com/article/10916178'},
+auto:{tag:'가전·자동차 · 11/1부터',title:'차·가전 할인 공개일: 11월 1일',body:'<p><b>공개일:</b> 11월 1일(일) 당일, 차종·제품별 할인율이 공개됩니다.</p><p><b>참여:</b> 현대·기아 등 자동차 5개사, 삼성전자·LG전자 가전. 제조사 인증 중고차도 올해 처음 참여합니다.</p><p><b>팁:</b> 큰돈 쓰는 만큼 옵션, 반품·교환 조건을 결제 전에 꼭 확인하세요.</p>',link:'https://mbiz.heraldcorp.com/article/10916178'},
+fashion:{tag:'패션 · 행사 기간',title:'백화점 겨울옷 최대 50%',body:'<p><b>어디서:</b> 롯데, 신세계, 현대 등 백화점 중심 겨울 의류 할인</p><p><b>팁:</b> 패딩 사기 좋은 타이밍입니다. 사이즈 교환이 되는지, 행사품 반품 조건은 어떤지 먼저 확인하세요.</p>',link:'https://mbiz.heraldcorp.com/article/10916178'},
+mart:{tag:'먹거리·생필품 · 행사 기간',title:'대형마트 최대 50% / 1+1',body:'<p><b>어디서:</b> 이마트, 롯데마트, 홈플러스 등</p><p><b>품목:</b> 고기, 제철 수산물, 가공식품, 생활용품</p><p><b>팁:</b> 1+1도 단위 가격으로 따져보세요. 필요 없는 걸 두 개 사는 게 아닐 때만 이득입니다.</p>',link:'https://mbiz.heraldcorp.com/article/10916178'},
+voucher:{tag:'상품권 · 11/2~11/15 등',title:'지역화폐 할인율 상향',body:'<p><b>수도권:</b> 지역사랑상품권 8% → 13%</p><p><b>인구감소지역:</b> 12% → 17%</p><p><b>모바일 온누리상품권:</b> 20% 할인 판매, 11월 2일~15일</p><p><b>주의:</b> 예산이 떨어지면 조기 종료될 수 있습니다. 필요하면 미리 사두세요.</p>',link:'https://mbiz.heraldcorp.com/article/10916178'},
+lottery:{tag:'복권 · 총 17억 원 규모',title:'상생소비복권: 3만 원당 1장',body:'<p><b>방법:</b> 디지털 온누리상품권으로 3만 원 쓸 때마다 응모권 1장</p><p><b>규모:</b> 총 17억 원 규모 상생소비복권</p><p><b>팁:</b> 아래 할인 계산기에서 내 응모권 수를 계산해 보세요.</p>',link:'https://mbiz.heraldcorp.com/article/10916178'},
+online:{tag:'온라인 · 행사 기간',title:'중소·소상공인 최대 20~60%',body:'<p><b>어디서:</b> 11번가, G마켓, 그립 등 중소기업·소상공인 제품 20% 타임딜·라이브커머스</p><p><b>네이버 소상공인 특별전:</b> 최대 60% 수준</p><p><b>팁:</b> 배송비까지 합친 최종 가격으로 비교하세요.</p>',link:'https://mbiz.heraldcorp.com/article/10916178'},
+stay:{tag:'숙박·문화 · 행사 기간',title:'숙박세일 + 일부 문화시설 무료',body:'<p><b>숙박:</b> 코리아 숙박세일페스타가 함께 진행됩니다.</p><p><b>문화시설:</b> 일부 국가유산 무료 개방이 예정돼 있으나, 대상·일정은 아직 미발표입니다.</p><p><b>참고:</b> 작년에는 4대 궁·종묘가 무료였습니다. 방문 전 공식 안내를 꼭 확인하세요.</p>',link:'https://en.fnnews.com/news/202610270509428626'}
+};
+const modal=document.getElementById('modal');
+function openCard(id){const d=DETAILS[id]; if(!d) return; document.getElementById('mTag').textContent=d.tag; document.getElementById('mTitle').textContent=d.title; document.getElementById('mBody').innerHTML=d.body; const a=document.getElementById('mLink'); a.href=d.link; modal.classList.add('open');}
+function closeModal(){modal.classList.remove('open');}
+document.querySelectorAll('.card').forEach(c=>{c.setAttribute('tabindex','0'); c.setAttribute('role','button'); c.addEventListener('click',()=>openCard(c.dataset.id)); c.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault(); openCard(c.dataset.id);}});});
+document.getElementById('modalClose').addEventListener('click',closeModal);
+modal.addEventListener('click',e=>{if(e.target===modal) closeModal();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape') closeModal();});
 </script>
 </body>
 </html>
